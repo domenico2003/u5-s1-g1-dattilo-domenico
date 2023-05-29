@@ -2,7 +2,11 @@ package application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import application.classes.PizzaExtraSalami;
+import application.classes.Pizze;
+import application.classes.pizze.Margherita;
 import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
@@ -13,7 +17,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 
 // ESERCIZIO 1
-		esercizioUno();
+		// esercizioUno();
 
 // ESERCIZIO 2
 		esercizioDue();
@@ -24,7 +28,12 @@ public class Application {
 	}
 
 	private static void esercizioDue() {
-		// TODO Auto-generated method stub
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Application.class);
+		log.info(ctx.getBean("margherita").toString());
+		Pizze marg = new Margherita();
+		log.info(new PizzaExtraSalami(marg).toString());
+		log.info(((Pizze) ctx.getBean("margherita")).toString());
 
+		ctx.close();
 	}
 }
