@@ -1,10 +1,10 @@
-package application;
+package it.epicode.be.godfather;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class U5S1G1DattiloDomenicoApplicationTests {
+class GodFatherPizzaApplicationTests {
 
 	@Test
 	void contextLoads() {
